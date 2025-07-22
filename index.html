@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Envelope Letter</title>
+  <style>
+    body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f8f1e7;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+    }
+
+
+    .envelope {
+      position: relative;
+      width: 300px;
+      height: 200px;
+      background: #2e5339; 
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      cursor: pointer;
+      transition: transform 0.5s ease;
+    }
+
+    .envelope::before, .envelope::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-style: solid;
+    }
+
+    .envelope::before {
+      top: 0;
+      left: 0;
+      border-width: 100px 150px 0 150px;
+      border-color: #396c4d transparent transparent transparent; /* lighter green flap */
+    }
+
+    .image-row {
+      display: flex;
+      justify-content: center;
+      gap: 20px; /* spacing between images */
+      flex-wrap: wrap;
+      margin: 20px 0;
+}
+
+    .image-row img {
+    width: 30%; /* adjust as needed */
+    min-width: 200px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+    .envelope::after {
+      bottom: 0;
+      left: 0;
+      border-width: 0 150px 100px 150px;
+      border-color: transparent transparent #396c4d transparent; /* lighter green flap */
+    }
+
+    .envelope-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #ffffff;
+      font-weight: bold;
+      font-size: 18px;
+      text-align: center;
+    }
+
+    .letter-container {
+      display: none;
+      opacity: 0;
+      transition: opacity 1s ease;
+      background-color: white;
+      border-radius: 12px;
+      padding: 30px;
+      max-width: 700px;
+      width: 90%;
+      position: relative;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      margin-top: 20px;
+    }
+
+    .letter-header {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .letter-content {
+      font-size: 16px;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .letter-image {
+      display: block;
+      max-width: 100%;
+      margin: 10px auto;
+      border-radius: 8px;
+    }
+
+    .close-button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: #e74c3c;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .close-button:hover {
+      background-color: #c0392b;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="envelope" id="envelope" onclick="openLetter()">
+    <div class="envelope-text">Click to Open<br>✉️</div>
+  </div>
+
+  <div class="letter-container" id="letterBox">
+    <button class="close-button" onclick="closeLetter()">×</button>
+    <div class="letter-header">Dear Kara,</div>
+    <div class="letter-content">
+      <p>I hope this E letter reaches you well and produces joy</p>
+      <h2>Doggies</h2>
+      <p>I’ve never had a pet myself, though my brother Higinio once had a cat. Sometimes I wonder if I’d need a pet out in the world as well I worry that a person might start to see themselves as my pet.. Like I’m the one deciding what they eat or that they feel the need to stay close, like a loyal doggie. But that’s only because what I want in a pet is different from what I value in a person. I appreciate a pet’s loyalty and comfort. But with a person, I admire their understanding and free will to choose to stay, to be a companion not out of obedience, but out of the want to stuggle together although i might be hard to deal with. </p>
+      <h2>Apple Pie</h2>
+      <p>My apple pie is a unique dish, a feeling that no other will do, though other plates may be just as appealing. The craving for it is strange to me like something from a list of recipes or a flock of sheep it feels incomplete without it. I know that if I were to drop my apple pie, another dish could take its place, but I would still remember it: the sweetness, warmth, and the slight burn id sometimes leave in my mouth when i was caught off guard (RBF whipped ..+1). The apple pie doesn’t make me the cook or give meaning to my existence in the kitchen, but it’s certainly a recipe I hope never poisons my heart and continues to keep me company at the table. </p>
+      <div class="image-row">
+        <img src="./supperCatKara.png" alt="Memory 1">
+        <img src="./babyCaringKara.png" alt="Memory 2">
+        <img src="./scaredEMA.png" alt="Memory 3">
+        <img src="./USTEAM.jpeg" alt="Memory 4">
+        <img src="./firstTimeOut.jpeg" alt="Memory 5">
+        <img src="./prettyTree.jpeg" alt="Memory 6">
+
+
+      </div>
+      <h2>Fella</h2>
+      <p>Well, of course I want it to be us against the world, fella, with Sawyer and Godzilla, and if you meant it that time you mentioned it a filled cradle just iff. I did find your dad's story funny about the peanuts, not the drinking too much one, haha. I do love it when you talk about things, it's nice to know your perspective and listen to you get excited about stuff. I do agree though, please let me know when you're mad or feel unfairly treated. That play sounds really exciting, I wonder if you've put more work into it. I know the playlist I made wasn't all 90s themed, I was just feeling that sometimes great things end and people are helpless to stop it in LHOPS, even though I didn't finish refining it. I love you a lot, fella, and I'd want to struggle in life with you, even if we get mad at each other sometimes. I do like writing letters, but most of the time I'm working and forget to go to the nearest post office down here, so I coded this up. </p>
+
+      <p>With love,<br>Manuel Martinez</p>
+    </div>
+  </div>
+
+  <script>
+    function openLetter() {
+      document.getElementById('envelope').style.display = 'none';
+      const letter = document.getElementById('letterBox');
+      letter.style.display = 'block';
+      setTimeout(() => {
+        letter.style.opacity = 1;
+      }, 50);
+    }
+
+    function closeLetter() {
+      const letter = document.getElementById('letterBox');
+      letter.style.opacity = 0;
+      setTimeout(() => {
+        letter.style.display = 'none';
+        document.getElementById('envelope').style.display = 'flex';
+      }, 1000);
+    }
+  </script>
+
+</body>
+</html>
